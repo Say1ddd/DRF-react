@@ -7,16 +7,16 @@ from .serializers import SiswaSerializer
 
 class SiswaView(APIView):
 
-    def get1(self, pk):
+    def getSiswa(self, pk):
         try:
-            student = Siswa.objects.get(siswaId=pk)
-            return student
+            siswa = Siswa.objects.get(siswaId=pk)
+            return siswa
         except Siswa.DoesNotExist:
             raise Http404
 
-    def get0(self, request, pk=None):
+    def get(self, request, pk=None):
         if pk:
-            data = self.get_siswa(pk)
+            data = self.getSiswa(pk)
             serializer = SiswaSerializer(data)
         else:
             data = Siswa.objects.all()
@@ -33,7 +33,7 @@ class SiswaView(APIView):
         return JsonResponse("Gagal Menambahkan Data", safe=False)
 
     def put(self, request, pk=None):
-        siswaUpdate = Siswa.objects.get(studentId=pk)
+        siswaUpdate = Siswa.objects.get(siswaId=pk)
         serializer = SiswaSerializer(instance=siswaUpdate, data=request.data, partial=True)
 
         if serializer.is_valid():
