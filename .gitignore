@@ -1,0 +1,7 @@
+.idea
+venv
+node_modules
+frontend/node_modules
+backend/backend/__pycache__
+backend/todo/__pycache__
+backend/todo/migrations/__pycache__
