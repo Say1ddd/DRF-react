@@ -27,8 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'siswa.apps.SiswaConfig',
+    'todo',
     'corsheaders',
     'rest_framework',
 ]
@@ -50,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.urls'
