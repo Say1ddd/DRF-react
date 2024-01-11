@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import Table from './components/Table'
-import TodoForm from './components/TodoForm'
+import Table from './components/table'
+import TodoForm from './components/ToDoForm'
 import axios from 'axios'
 
 
